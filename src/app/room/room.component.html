@@ -1,0 +1,24 @@
+<h1>Rooms Available</h1>
+<h2>Welcome to Hotel Marudhara Resorts</h2>
+
+<h4>Total Rooms Available : {{ totalNumberOfRooms }}</h4>
+<h4
+  [ngStyle]="{ color: roomsAvailability.availableRooms > 0 ? 'green' : 'red' }"
+>
+  Available Rooms:
+  {{ roomsAvailability.availableRooms || "Rooms are not available" }}
+</h4>
+
+<!-- {{ roomsAvailability | json }} -->
+
+<app-rooms-list
+  [roomsList]="roomsList"
+  [isRoomsTableVisible]="isRoomsTableVisible"
+  (selectedRoom)="selectRoom($event)"
+></app-rooms-list>
+
+<button
+  style="margin-top: 10px"
+  (click)="toggleRoomsTable()"
+  [innerText]="isRoomsTableVisible ? 'Hide' : 'show'"
+></button>
