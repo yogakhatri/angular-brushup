@@ -1,4 +1,5 @@
-<table class="table" [hidden]="!isRoomsTableVisible">
+<h2>{{ title }}</h2>
+<table class="table">
   <thead>
     <th>Index</th>
     <th>Room Number</th>
@@ -13,12 +14,7 @@
   <tbody *ngIf="!!roomsList.length; else roomDataNotAvailable">
     <tr
       [ngClass]="e ? 'even' : 'odd'"
-      *ngFor="
-        let room of roomsList | slice : 0 : 3;
-        let i = index;
-        let e = even;
-        let o = odd
-      "
+      *ngFor="let room of roomsList; let i = index; let e = even; let o = odd"
     >
       <td>{{ i + 1 | percent }}</td>
       <td>{{ room.roomNumber }}</td>

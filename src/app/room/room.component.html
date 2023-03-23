@@ -1,5 +1,9 @@
-<h1>Rooms Available</h1>
-<h2>Welcome to Hotel Marudhara Resorts</h2>
+<!-- <h1>Rooms Available</h1> -->
+<!-- <h2>Welcome to Hotel Marudhara Resorts</h2> -->
+
+<app-header></app-header>
+<app-header></app-header>
+<app-header></app-header>
 
 <h4>Total Rooms Available : {{ totalNumberOfRooms }}</h4>
 <h4
@@ -10,15 +14,24 @@
 </h4>
 
 <!-- {{ roomsAvailability | json }} -->
+<div *ngIf="isRoomsTableVisible">
+  <app-rooms-list
+    [roomsList]="roomsList"
+    [title]="title"
+    (selectedRoom)="selectRoom($event)"
+  ></app-rooms-list>
+</div>
 
-<app-rooms-list
-  [roomsList]="roomsList"
-  [isRoomsTableVisible]="isRoomsTableVisible"
-  (selectedRoom)="selectRoom($event)"
-></app-rooms-list>
+<div>{{ selectedRoom | json }}</div>
 
 <button
   style="margin-top: 10px"
   (click)="toggleRoomsTable()"
   [innerText]="isRoomsTableVisible ? 'Hide' : 'show'"
 ></button>
+
+<button style="margin-top: 10px" (click)="addRoom()">Add New</button>
+<button style="margin-top: 10px" (click)="editRoom()">Edit</button>
+<button style="margin-top: 10px" (click)="deleteRoom()">Delete</button>
+<button style="margin-top: 10px" (click)="getPhotos()">Show Photos</button>
+<h1>{{ totalBytes }}</h1>

@@ -1,5 +1,17 @@
-<div [ngSwitch]="userRole">
+<!-- <div [ngSwitch]="userRole">
   <div *ngSwitchCase="userRoles.admin"><app-room></app-room></div>
   <div *ngSwitchCase="userRoles.user">Welcome User</div>
   <div *ngSwitchDefault>You are not authorize to view this page</div>
+</div> -->
+
+<app-container>
+  <app-room></app-room>
+  <app-employee></app-employee>
+  <h1>This is from ng-content</h1>
+</app-container>
+
+<h1 #name></h1>
+
+<div>
+  <ng-template #user></ng-template>
 </div>

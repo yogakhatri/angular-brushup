@@ -9,7 +9,7 @@ export type roomType = 'Luxury' | 'Deluxe' | 'Economy';
 export type userRoleType = 'admin' | 'user';
 
 export interface roomDetails {
-  roomNumber: number;
+  roomNumber?: string;
   roomType: roomType;
   amenities: string;
   price: number;
@@ -17,4 +17,12 @@ export interface roomDetails {
   checkInTime: Date;
   checkOutTime: Date;
   rating: number;
+}
+
+export interface photoDetails {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
 }
