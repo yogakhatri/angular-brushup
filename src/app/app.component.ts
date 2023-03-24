@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { userRoleType } from 'src/interfaces/common';
 import { role } from './Data/common';
+import { InitService } from './init.service';
 import { LocalStorageToken } from './localstorage.token';
 import { LoggerService } from './logger.service';
 import { RoomComponent } from './room/room.component';
@@ -40,8 +41,10 @@ export class AppComponent implements OnInit {
 
   constructor(
     @Optional() private loggerService: LoggerService,
-    @Inject(LocalStorageToken) private localStorage: Storage
+    @Inject(LocalStorageToken) private localStorage: Storage,
+    private initService: InitService
   ) {
+    console.log(initService.config);
     this.localStorage.setItem('name', 'yogesh Khatri');
   }
 }
