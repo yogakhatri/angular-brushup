@@ -30,8 +30,8 @@ export class AppComponent implements OnInit {
   // }
   ngOnInit(): void {
     this.loggerService?.log('from app component');
-    console.log(this.name.nativeElement);
-    this.name.nativeElement.innerText = 'Hello world';
+    // console.log(this.name.nativeElement);
+    // this.name.nativeElement.innerText = 'Hello world';
   }
   title = 'Angular BrushUp';
   userRoles = role;
