@@ -1,0 +1,28 @@
+<form (ngSubmit)="login()">
+  <div class="form-group">
+    <input
+      #emailCheck="ngModel"
+      appEmailValidator
+      appHover="cyan"
+      class="form-control"
+      name="email"
+      type="email"
+      [(ngModel)]="email"
+      placeholder="Email"
+    />
+    <div>{{ emailCheck.errors | json }}</div>
+  </div>
+  <div class="form-group">
+    <input
+      appHover="olive"
+      class="form-control"
+      name="password"
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Password"
+    />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Login</button>
+  </div>
+</form>

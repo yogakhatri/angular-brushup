@@ -5,7 +5,7 @@ import {
   Host,
   ViewChild,
 } from '@angular/core';
-import { EmployeeComponent } from '../employee/employee.component';
+// import { EmployeeComponent } from '../employee/employee.component';
 import { RoomsService } from '../services/rooms.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { RoomsService } from '../services/rooms.service';
   providers: [RoomsService],
 })
 export class ContainerComponent implements AfterContentInit {
-  @ContentChild(EmployeeComponent) employee!: EmployeeComponent;
+  // @ContentChild(EmployeeComponent) employee!: EmployeeComponent;
 
   // 4 types of resolution Modifiers.
   // Self
@@ -26,7 +26,7 @@ export class ContainerComponent implements AfterContentInit {
   constructor(@Host() roomsService: RoomsService) {}
 
   ngAfterContentInit(): void {
-    console.log(this.employee);
-    this.employee.empName = 'name wick';
+    // console.log(this.employee);
+    // this.employee.empName = 'name wick';
   }
 }
