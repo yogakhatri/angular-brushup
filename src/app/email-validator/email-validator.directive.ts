@@ -21,10 +21,10 @@ export class EmailValidatorDirective implements Validator {
 
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     const value = control.value as string;
-    console.log(
-      '🚀 ~ file: email-validator.directive.ts:24 ~ EmailValidatorDirective ~ validate ~ value:',
-      value
-    );
+    // console.log(
+    //   '🚀 ~ file: email-validator.directive.ts:24 ~ EmailValidatorDirective ~ validate ~ value:',
+    //   value
+    // );
 
     if (value?.includes('test')) {
       return {

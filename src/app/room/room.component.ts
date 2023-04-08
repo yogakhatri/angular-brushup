@@ -15,6 +15,7 @@ import { roomDetails } from 'src/interfaces/common';
 import { roomsAvailability } from '../Data/common';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from '../services/rooms.service';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'app-room',
@@ -22,6 +23,11 @@ import { RoomsService } from '../services/rooms.service';
   styleUrls: ['./room.component.scss'],
 })
 export class RoomComponent implements OnInit, AfterViewInit, AfterViewChecked {
+  constructor(
+    @SkipSelf() private roomsService: RoomsService,
+    private configService: ConfigService
+  ) {}
+
   totalNumberOfRooms = 10;
   isRoomsTableVisible = true;
   roomsList: roomDetails[] = [];
@@ -43,10 +49,8 @@ export class RoomComponent implements OnInit, AfterViewInit, AfterViewChecked {
   @ViewChildren(HeaderComponent)
   headerChildrenComponent!: QueryList<HeaderComponent>;
 
-  constructor(@SkipSelf() private roomsService: RoomsService) {}
-
   ngAfterViewChecked(): void {
-    console.log('after view checked');
+    // console.log('after view checked');
   }
 
   ngAfterViewInit(): void {

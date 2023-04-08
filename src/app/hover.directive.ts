@@ -16,7 +16,7 @@ export class HoverDirective implements OnInit {
   constructor(private eleRef: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    console.log(this.eleRef.nativeElement);
+    // console.log(this.eleRef.nativeElement);
     // this.eleRef.nativeElement.style.backgroundColor = this.color;
     this.renderer.setStyle(
       this.eleRef.nativeElement,

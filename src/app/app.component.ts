@@ -14,6 +14,9 @@ import { InitService } from './init.service';
 import { LocalStorageToken } from './localstorage.token';
 import { LoggerService } from './logger.service';
 import { RoomComponent } from './room/room.component';
+import { ConfigService } from './services/config.service';
+import { NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +33,17 @@ export class AppComponent implements OnInit {
   // }
   ngOnInit(): void {
     this.loggerService?.log('from app component');
+
+    // this.router.events.subscribe((event) => {
+    //   console.log(event);
+    // });
+
+    this.router.events
+      .pipe(filter((e) => e instanceof NavigationStart))
+      .subscribe((event) => {
+        console.log(event);
+      });
+
     // console.log(this.name.nativeElement);
     // this.name.nativeElement.innerText = 'Hello world';
   }
@@ -42,9 +56,11 @@ export class AppComponent implements OnInit {
   constructor(
     @Optional() private loggerService: LoggerService,
     @Inject(LocalStorageToken) private localStorage: Storage,
-    private initService: InitService
+    private initService: InitService,
+    private configService: ConfigService,
+    private router: Router
   ) {
-    console.log(initService.config);
+    // console.log(initService.config);
     this.localStorage.setItem('name', 'yogesh Khatri');
   }
 }
